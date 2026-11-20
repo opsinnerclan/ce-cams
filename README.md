@@ -9,6 +9,14 @@ source of the modified files available, as the MPL requires.
 **CE Cams is not a Network Optix product.** "Nx", "Nx Witness", "Nx Meta" and "Network Optix"
 are trademarks of Network Optix and are used here only to describe what this fork is based on.
 
+## Just want to use CE Cams?
+
+If you're here to **run** CE Cams rather than build it, you don't need any of this. Download the
+server installer from the [Releases](../../releases) page and follow
+**[docs/getting-started.md](docs/getting-started.md)** - install the server, add your cameras, and
+(optionally) connect to the cloud for remote access without opening ports. The rest of this repo
+is the client's source, published for license compliance.
+
 ## What's here
 
 This repo contains only the scripts that turn an upstream `nx_open` checkout into the CE Cams
