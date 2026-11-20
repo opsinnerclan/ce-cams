@@ -1,0 +1,14 @@
+The files in this repository that are derived from Network Optix's nx_open
+are licensed under the Mozilla Public License, version 2.0.
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+The full text of the Mozilla Public License 2.0 should accompany this file.
+If it does not, obtain it from the URL above. (On GitHub, the repository's
+"Add license -> Mozilla Public License 2.0" inserts the official full text
+verbatim.)
+
+See NOTICE.md for third-party components (Qt, FFmpeg and others) and their
+separate licenses.

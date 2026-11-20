@@ -1,0 +1,24 @@
+# Build sources and output (the nx_open checkout and build trees live outside the repo by default)
+ce/
+nx_open/
+nx_open-build/
+nx_open-build-android/
+build/
+dist/
+*.deb
+*.apk
+*.exe
+
+# Your local server/cloud settings and any keys (these belong to the private server, not here)
+nxstub.json
+nxstub_state/
+*.pem
+ce_cams_build.json
+ce_cams_build_linux.json
+metavms_package.zip
+android/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
