@@ -309,7 +309,7 @@ build_type=Release
 PROFILE
     echo "  System GCC $gcc_major is newer than Conan 1 knows; the build machine is described as GCC 13"
 fi
-LOG="$ROOT/build$([ "$ANDROID" = 1 ] && echo -android).log"
+LOG="$ROOT/build.log"; [ "$ANDROID" = 1 ] && LOG="$ROOT/build-android.log"
 echo "  Log: $LOG"
 for attempt in 1 2 3 4; do
     set +e
