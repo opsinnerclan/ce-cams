@@ -16,6 +16,10 @@ What it changes:
     dependency list from apidoctool"). Falls back to "openjdk".
   * std::ranges::range_adaptor_closure (C++23) for libc++ older than 19 (Android NDK r26d), which
     has it only as std::__range_adaptor_closure. Other standard libraries are left alone.
+  * Linux .deb: CE Cams in the app menu. The package names its menu launcher after installerName
+    and its (hidden) cecams:// link handler after uriProtocol; ours are both "cecams", so the
+    handler overwrote the launcher and the client never appeared in the menu. The launcher is now
+    "<installerName>-client.desktop" when the two names are the same.
 """
 
 from __future__ import annotations
@@ -25,6 +29,19 @@ import sys
 from pathlib import Path
 
 PATCHES = [
+    (
+        "vms/distribution/deb/client/build_distribution.sh",
+        """    mv -f "$STAGE/usr/share/applications/icon.desktop" \\
+        "$STAGE/usr/share/applications/$INSTALLER_NAME.desktop"
+""",
+        """    # CE Cams: installerName and uriProtocol are both "cecams"; the URI handler below (hidden,
+    # NoDisplay) would overwrite the menu launcher, so give the launcher its own name.
+    local launcher="$INSTALLER_NAME"
+    if [ "$INSTALLER_NAME" = "$URI_PROTOCOL" ]; then launcher="$INSTALLER_NAME-client"; fi
+    mv -f "$STAGE/usr/share/applications/icon.desktop" \\
+        "$STAGE/usr/share/applications/$launcher.desktop"
+""",
+    ),
     (
         "cmake/find_java.cmake",
         """set(Java_JAVA_EXECUTABLE "${CONAN_OPENJDK-JRE_ROOT}/bin/java${CMAKE_EXECUTABLE_SUFFIX}")
